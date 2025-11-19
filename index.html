@@ -1,6 +1,7 @@
 <!--
     Aditya Nautiyal Portfolio Website
-    Built as a single-page application using Tailwind CSS for a clean, responsive, and professional look.
+    Build 4: Portfolio section updated to include Juke Audio and GTS Driver App.
+    Uses Tailwind CSS for a clean, responsive, and professional look.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +14,25 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Custom Styles for aesthetic branding */
         body { font-family: 'Inter', sans-serif; }
         .bg-primary { background-color: #1a202c; /* Dark Blue/Charcoal */ }
         .text-accent { color: #4dc0b5; /* Teal */ }
         .border-accent { border-color: #4dc0b5; }
-        .skill-badge { padding: 0.5rem 1rem; border-radius: 9999px; background-color: #f0fff4; color: #38a169; font-weight: 600; font-size: 0.875rem; }
+        .skill-badge { 
+            padding: 0.5rem 1rem; 
+            border-radius: 9999px; 
+            background-color: #f0fff4; 
+            color: #38a169; 
+            font-weight: 600; 
+            font-size: 0.875rem; 
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -36,13 +51,13 @@
                 </span>
                 <a href="tel:+97150XXXX275" class="flex items-center space-x-2 hover:text-accent transition">
                     <i class="fas fa-phone text-accent"></i>
-                    <span>+971 50XXXX275</span>
+                    <span>+971 501019275</span>
                 </a>
                 <a href="mailto:adityanautiyal9@gmail.com" class="flex items-center space-x-2 hover:text-accent transition">
                     <i class="fas fa-envelope text-accent"></i>
                     <span>adityanautiyal9@gmail.com</span>
                 </a>
-                <a href="[LinkedIn Profile URL]" target="_blank" class="flex items-center space-x-2 hover:text-accent transition">
+                <a href="https://www.linkedin.com/in/adityanautiyal1211/" target="_blank" class="flex items-center space-x-2 hover:text-accent transition">
                     <i class="fab fa-linkedin text-accent"></i>
                     <span>LinkedIn</span>
                 </a>
@@ -54,9 +69,8 @@
 
         <!-- Professional Pitch -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">💡 Professional Pitch</h2>
             <p class="text-lg leading-relaxed text-gray-700">
-                A highly effective **Flutter Developer** with **4+ years** of total mobile expertise, specializing in building high-performance, scalable applications in **Fintech, Healthcare, & IoT**. My focus is on robust, maintainable solutions using **BLoC** and **Clean Architecture**.
+                A highly effective Flutter Developer with 4+ years of total mobile expertise, specializing in building high-performance, scalable applications in Fintech, Healthcare, & IoT. My focus is on robust, maintainable solutions using BLoC and Clean Architecture.
             </p>
             <div class="mt-4 flex flex-wrap gap-2">
                 <span class="skill-badge">BLoC</span>
@@ -98,9 +112,9 @@
                 <h3 class="text-xl font-bold text-primary">🏦 Software Developer <span class="text-base font-normal text-gray-500"> | Finance House, Dubai</span></h3>
                 <p class="text-sm italic text-gray-500 mb-3">August 2024 – Present</p>
                 <ul class="list-disc list-inside space-y-2 text-gray-700 text-base">
-                    <li>Led performance optimization initiatives, achieving measurable reductions in **app load times** (Fintech).</li>
-                    <li>Architected scalable apps using **BLoC** + **Clean Architecture** for long-term maintainability.</li>
-                    <li>Managed E2E quality via rigorous **SIT/UAT** for regulatory compliance.</li>
+                    <li>Led performance optimization initiatives, achieving measurable reductions in app load times (Fintech).</li>
+                    <li>Architected scalable apps using BLoC + Clean Architecture for long-term maintainability.</li>
+                    <li>Managed E2E quality via rigorous SIT/UAT for regulatory compliance.</li>
                 </ul>
             </div>
 
@@ -109,9 +123,9 @@
                 <h3 class="text-xl font-bold text-primary">🌐 Associate Software Engineer <span class="text-base font-normal text-gray-500"> | VT NETZWELT, Mohali, Punjab</span></h3>
                 <p class="text-sm italic text-gray-500 mb-3">March 2022 – July 2024</p>
                 <ul class="list-disc list-inside space-y-2 text-gray-700 text-base">
-                    <li>Enhanced feature delivery speed by **>40%** across multiple Flutter (Dart) apps.</li>
-                    <li>Designed **AI-powered healthcare features** (Housevizit) using **Azure ML & AI**.</li>
-                    <li>Proactively optimized memory, resulting in significantly **reduced crash rates**.</li>
+                    <li>Enhanced feature delivery speed by >40% across multiple Flutter (Dart) apps.</li>
+                    <li>Designed AI-powered healthcare features (Housevizit) using Azure ML & AI.</li>
+                    <li>Proactively optimized memory, resulting in significantly reduced crash rates.</li>
                 </ul>
             </div>
             
@@ -128,34 +142,49 @@
             <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">📱 Application Portfolio</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <!-- InvestNation -->
+                <!-- InvestNation (Android/iOS) -->
                 <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-yellow-500">
-                    <h3 class="text-xl font-bold text-yellow-700 mb-1">InvestNation <span class="text-sm font-normal text-gray-500">(Fintech)</span></h3>
+                    <h3 class="text-xl font-bold text-yellow-700 mb-1">InvestNation <span class="text-sm font-normal text-gray-500">(Fintech | Android/iOS)</span></h3>
                     <p class="text-sm mb-3 text-gray-600">Digital investment platform regulated by the SCA, offering SIP, gold/silver purchases, and credit card services.</p>
-                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
-                    <a href="[App Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.fhc.InvestNation" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
+                    <a href="https://apps.apple.com/ae/app/investnation/id6465605280" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
                 </div>
 
-                <!-- FH Personal/Business -->
+                <!-- FH Personal/Business (Android/iOS) -->
                 <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-blue-500">
-                    <h3 class="text-xl font-bold text-blue-700 mb-1">FH Personal/Business <span class="text-sm font-normal text-gray-500">(Fintech)</span></h3>
+                    <h3 class="text-xl font-bold text-blue-700 mb-1">FH Personal/Business <span class="text-sm font-normal text-gray-500">(Fintech | Android/iOS)</span></h3>
                     <p class="text-sm mb-3 text-gray-600">Consumer fintech for bill payments, card management, and a dedicated financial application for corporate clients.</p>
-                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
-                    <a href="[App Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.fh.payday" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
+                    <a href="https://apps.apple.com/ae/app/fh-personal/id1563416308" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
                 </div>
                 
-                <!-- Housevizit -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-green-500">
-                    <h3 class="text-xl font-bold text-green-700 mb-1">Housevizit <span class="text-sm font-normal text-gray-500">(AI Healthcare)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">AI-powered chat application that triages symptoms and facilitates doctor appointment booking.</p>
-                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                <!-- Juke Audio (Android/iOS) -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-purple-500">
+                    <h3 class="text-xl font-bold text-purple-700 mb-1">Juke Audio <span class="text-sm font-normal text-gray-500">(Media | Android/iOS)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">Real-time data handling and UI/UX optimized media application for audio content.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.juke.audio.juke_audio&hl=en" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
+                    <a href="https://apps.apple.com/ae/app/juke-audio/id1634801077" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
                 </div>
 
-                <!-- GTS Car Rental -->
+                <!-- Housevizit (Android) -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-green-500">
+                    <h3 class="text-xl font-bold text-green-700 mb-1">Housevizit <span class="text-sm font-normal text-gray-500">(AI Healthcare | Android)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">AI-powered chat application that triages symptoms and facilitates doctor appointment booking.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.gtscarrental&hl=en" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                </div>
+
+                <!-- GTS Driver App (Native Android) -->
                 <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-red-500">
-                    <h3 class="text-xl font-bold text-red-700 mb-1">GTS Car Rental <span class="text-sm font-normal text-gray-500">(Native Mobility)</span></h3>
+                    <h3 class="text-xl font-bold text-red-700 mb-1">GTS Car Rental <span class="text-sm font-normal text-gray-500">(Native Mobility | Android)</span></h3>
                     <p class="text-sm mb-3 text-gray-600">Native Android ride-hailing application used across Dehradun, India.</p>
-                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.gtscarrental&hl=en" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                </div>
+                
+                <!-- GTS Car App (Native Android) -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-gray-500">
+                    <h3 class="text-xl font-bold text-gray-700 mb-1">GTS Driver App <span class="text-sm font-normal text-gray-500">(Native Mobility | Android)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">Driver management companion app built natively for Android platform.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.gtsdriver" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
                 </div>
 
             </div>
@@ -164,7 +193,7 @@
         <!-- Education -->
         <section class="mb-12">
             <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">🎓 Education</h2>
-            <p class="text-lg font-medium text-gray-700">**B.Tech in Computer Science & Engineering**</p>
+            <p class="text-lg font-medium text-gray-700">B.Tech in Computer Science & Engineering</p>
             <p class="text-base italic text-gray-500">Uttarakhand Technical University</p>
         </section>
 
