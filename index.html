@@ -1,0 +1,178 @@
+<!--
+    Aditya Nautiyal Portfolio Website
+    Built as a single-page application using Tailwind CSS for a clean, responsive, and professional look.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Nautiyal | Flutter Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-primary { background-color: #1a202c; /* Dark Blue/Charcoal */ }
+        .text-accent { color: #4dc0b5; /* Teal */ }
+        .border-accent { border-color: #4dc0b5; }
+        .skill-badge { padding: 0.5rem 1rem; border-radius: 9999px; background-color: #f0fff4; color: #38a169; font-weight: 600; font-size: 0.875rem; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Contact Section -->
+    <header class="bg-primary text-white py-10 shadow-lg">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">ADITYA NAUTIYAL</h1>
+            <p class="text-xl sm:text-2xl font-light text-accent mt-1">Flutter Developer | Fintech & Clean Architecture Specialist</p>
+
+            <!-- Contact Bar -->
+            <div class="mt-6 flex flex-wrap gap-y-2 gap-x-6 text-sm">
+                <span class="flex items-center space-x-2">
+                    <i class="fas fa-map-marker-alt text-accent"></i>
+                    <span>Abu Dhabi, UAE</span>
+                </span>
+                <a href="tel:+97150XXXX275" class="flex items-center space-x-2 hover:text-accent transition">
+                    <i class="fas fa-phone text-accent"></i>
+                    <span>+971 50XXXX275</span>
+                </a>
+                <a href="mailto:adityanautiyal9@gmail.com" class="flex items-center space-x-2 hover:text-accent transition">
+                    <i class="fas fa-envelope text-accent"></i>
+                    <span>adityanautiyal9@gmail.com</span>
+                </a>
+                <a href="[LinkedIn Profile URL]" target="_blank" class="flex items-center space-x-2 hover:text-accent transition">
+                    <i class="fab fa-linkedin text-accent"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-12 px-4">
+
+        <!-- Professional Pitch -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">💡 Professional Pitch</h2>
+            <p class="text-lg leading-relaxed text-gray-700">
+                A highly effective **Flutter Developer** with **4+ years** of total mobile expertise, specializing in building high-performance, scalable applications in **Fintech, Healthcare, & IoT**. My focus is on robust, maintainable solutions using **BLoC** and **Clean Architecture**.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="skill-badge">BLoC</span>
+                <span class="skill-badge">Clean Architecture</span>
+                <span class="skill-badge">REST APIs</span>
+                <span class="skill-badge">WebRTC</span>
+                <span class="skill-badge">CI/CD</span>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">🛠️ Key Technical Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                
+                <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-teal-500">
+                    <h3 class="font-semibold text-lg text-teal-700 mb-2">Primary & Architecture</h3>
+                    <p class="text-sm text-gray-600">Flutter, Dart, BLoC, Clean Architecture, Provider, GetX</p>
+                </div>
+                
+                <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-teal-500">
+                    <h3 class="font-semibold text-lg text-teal-700 mb-2">Integration & Cloud</h3>
+                    <p class="text-sm text-gray-600">Firebase (RTDB, Auth), Azure ML & AI, WebRTC, Sockets, NFC, Secure Storage</p>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-teal-500">
+                    <h3 class="font-semibold text-lg text-teal-700 mb-2">Quality & Native</h3>
+                    <p class="text-sm text-gray-600">CI/CD, SIT/UAT, Performance Optimization, Unit/Widget Testing, Java, Kotlin</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">💼 Professional Experience</h2>
+            
+            <!-- Finance House -->
+            <div class="mb-6 p-4 bg-white rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+                <h3 class="text-xl font-bold text-primary">🏦 Software Developer <span class="text-base font-normal text-gray-500"> | Finance House, Dubai</span></h3>
+                <p class="text-sm italic text-gray-500 mb-3">August 2024 – Present</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700 text-base">
+                    <li>Led performance optimization initiatives, achieving measurable reductions in **app load times** (Fintech).</li>
+                    <li>Architected scalable apps using **BLoC** + **Clean Architecture** for long-term maintainability.</li>
+                    <li>Managed E2E quality via rigorous **SIT/UAT** for regulatory compliance.</li>
+                </ul>
+            </div>
+
+            <!-- VT NETZWELT -->
+            <div class="mb-6 p-4 bg-white rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+                <h3 class="text-xl font-bold text-primary">🌐 Associate Software Engineer <span class="text-base font-normal text-gray-500"> | VT NETZWELT, Mohali, Punjab</span></h3>
+                <p class="text-sm italic text-gray-500 mb-3">March 2022 – July 2024</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700 text-base">
+                    <li>Enhanced feature delivery speed by **>40%** across multiple Flutter (Dart) apps.</li>
+                    <li>Designed **AI-powered healthcare features** (Housevizit) using **Azure ML & AI**.</li>
+                    <li>Proactively optimized memory, resulting in significantly **reduced crash rates**.</li>
+                </ul>
+            </div>
+            
+            <!-- Anitej Services -->
+            <div class="p-4 bg-white rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+                <h3 class="text-xl font-bold text-primary">📱 Android Developer (Native) <span class="text-base font-normal text-gray-500"> | Anitej Services Pvt. Ltd, Dehradun</span></h3>
+                <p class="text-sm italic text-gray-500 mb-3">June 2021 – March 2022</p>
+                <p class="text-base text-gray-700">Developed native Android apps (Java/Kotlin) focusing on high-performance UX for ride-hailing services.</p>
+            </div>
+        </section>
+
+        <!-- Application Portfolio -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">📱 Application Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- InvestNation -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-yellow-500">
+                    <h3 class="text-xl font-bold text-yellow-700 mb-1">InvestNation <span class="text-sm font-normal text-gray-500">(Fintech)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">Digital investment platform regulated by the SCA, offering SIP, gold/silver purchases, and credit card services.</p>
+                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
+                    <a href="[App Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
+                </div>
+
+                <!-- FH Personal/Business -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-700 mb-1">FH Personal/Business <span class="text-sm font-normal text-gray-500">(Fintech)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">Consumer fintech for bill payments, card management, and a dedicated financial application for corporate clients.</p>
+                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
+                    <a href="[App Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
+                </div>
+                
+                <!-- Housevizit -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-green-500">
+                    <h3 class="text-xl font-bold text-green-700 mb-1">Housevizit <span class="text-sm font-normal text-gray-500">(AI Healthcare)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">AI-powered chat application that triages symptoms and facilitates doctor appointment booking.</p>
+                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                </div>
+
+                <!-- GTS Car Rental -->
+                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-red-500">
+                    <h3 class="text-xl font-bold text-red-700 mb-1">GTS Car Rental <span class="text-sm font-normal text-gray-500">(Native Mobility)</span></h3>
+                    <p class="text-sm mb-3 text-gray-600">Native Android ride-hailing application used across Dehradun, India.</p>
+                    <a href="[Play Store]" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">🎓 Education</h2>
+            <p class="text-lg font-medium text-gray-700">**B.Tech in Computer Science & Engineering**</p>
+            <p class="text-base italic text-gray-500">Uttarakhand Technical University</p>
+        </section>
+
+    </main>
+
+    <footer class="bg-primary text-gray-400 py-6 text-center text-sm">
+        <p>&copy; 2025 Aditya Nautiyal. Built with Flutter & Mobile Expertise.</p>
+    </footer>
+
+</body>
+</html>
