@@ -1,207 +1,743 @@
-<!--
-    Aditya Nautiyal Portfolio Website
-    Build 4: Portfolio section updated to include Juke Audio and GTS Driver App.
-    Uses Tailwind CSS for a clean, responsive, and professional look.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Nautiyal | Flutter Developer Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Aditya Nautiyal - Flutter Developer</title>
     <style>
-        /* Custom Styles for aesthetic branding */
-        body { font-family: 'Inter', sans-serif; }
-        .bg-primary { background-color: #1a202c; /* Dark Blue/Charcoal */ }
-        .text-accent { color: #4dc0b5; /* Teal */ }
-        .border-accent { border-color: #4dc0b5; }
-        .skill-badge { 
-            padding: 0.5rem 1rem; 
-            border-radius: 9999px; 
-            background-color: #f0fff4; 
-            color: #38a169; 
-            font-weight: 600; 
-            font-size: 0.875rem; 
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .skill-badge:hover {
+
+        :root {
+            --primary-blue: #0A1929;
+            --accent-blue: #1E88E5;
+            --light-blue: #42A5F5;
+            --bg-dark: #0D1B2A;
+            --text-light: #E3F2FD;
+            --text-gray: #90CAF9;
+            --card-bg: rgba(30, 136, 229, 0.05);
+            --border-color: rgba(66, 165, 245, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-blue) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+            opacity: 0.15;
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--light-blue) 0%, transparent 70%);
+            opacity: 0.1;
+            bottom: -150px;
+            left: -150px;
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.2); opacity: 0.25; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 72px;
+            font-weight: bold;
+            box-shadow: 0 20px 60px rgba(30, 136, 229, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--text-light), var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--light-blue);
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--light-blue));
+            border-radius: 2px;
+        }
+
+        /* Summary */
+        .summary-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .summary-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(30, 136, 229, 0.2);
+        }
+
+        .summary-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 25px;
+        }
+
+        .summary-box ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .summary-box li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .summary-box li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-blue), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -55px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            border: 4px solid var(--primary-blue);
+            box-shadow: 0 0 20px var(--accent-blue);
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-blue);
+        }
+
+        .company {
+            font-size: 1.5rem;
+            color: var(--light-blue);
+            margin-bottom: 5px;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+        }
+
+        .timeline-content li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .timeline-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 15px 40px rgba(30, 136, 229, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--accent-blue));
+        }
+
+        .skill-title {
+            font-size: 1.3rem;
+            color: var(--light-blue);
+            margin-bottom: 15px;
+        }
+
+        .skill-items {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--light-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .app-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(30, 136, 229, 0.3);
+        }
+
+        .app-name {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .app-category {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .store-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .store-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: rgba(30, 136, 229, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--light-blue);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .store-btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Education */
+        .education-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .degree {
+            font-size: 1.5rem;
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+
+        .university {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .title {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            .summary-box {
+                padding: 30px;
+            }
+
+            .skills-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-
-    <!-- Header & Contact Section -->
-    <header class="bg-primary text-white py-10 shadow-lg">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">ADITYA NAUTIYAL</h1>
-            <p class="text-xl sm:text-2xl font-light text-accent mt-1">Flutter Developer | Fintech & Clean Architecture Specialist</p>
-
-            <!-- Contact Bar -->
-            <div class="mt-6 flex flex-wrap gap-y-2 gap-x-6 text-sm">
-                <span class="flex items-center space-x-2">
-                    <i class="fas fa-map-marker-alt text-accent"></i>
-                    <span>Abu Dhabi, UAE</span>
-                </span>
-                <a href="tel:+97150XXXX275" class="flex items-center space-x-2 hover:text-accent transition">
-                    <i class="fas fa-phone text-accent"></i>
-                    <span>+971 501019275</span>
-                </a>
-                <a href="mailto:adityanautiyal9@gmail.com" class="flex items-center space-x-2 hover:text-accent transition">
-                    <i class="fas fa-envelope text-accent"></i>
-                    <span>adityanautiyal9@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/adityanautiyal1211/" target="_blank" class="flex items-center space-x-2 hover:text-accent transition">
-                    <i class="fab fa-linkedin text-accent"></i>
-                    <span>LinkedIn</span>
-                </a>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-img">AN</div>
+                <h1>ADITYA NAUTIYAL</h1>
+                <p class="title">Flutter Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">📍 Abu Dhabi, UAE</div>
+                    <div class="contact-item">📞 +971 501019275</div>
+                    <div class="contact-item">📞 +91 7533936659</div>
+                    <div class="contact-item">✉️ adityanautiyal9@gmail.com</div>
+                    <div class="contact-item">💼 LinkedIn</div>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="max-w-4xl mx-auto py-12 px-4">
-
-        <!-- Professional Pitch -->
-        <section class="mb-12">
-            <p class="text-lg leading-relaxed text-gray-700">
-                A highly effective Flutter Developer with 4+ years of total mobile expertise, specializing in building high-performance, scalable applications in Fintech, Healthcare, & IoT. My focus is on robust, maintainable solutions using BLoC and Clean Architecture.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-2">
-                <span class="skill-badge">BLoC</span>
-                <span class="skill-badge">Clean Architecture</span>
-                <span class="skill-badge">REST APIs</span>
-                <span class="skill-badge">WebRTC</span>
-                <span class="skill-badge">CI/CD</span>
-            </div>
-        </section>
-
-        <!-- Technical Skills -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">🛠️ Key Technical Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                
-                <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-teal-500">
-                    <h3 class="font-semibold text-lg text-teal-700 mb-2">Primary & Architecture</h3>
-                    <p class="text-sm text-gray-600">Flutter, Dart, BLoC, Clean Architecture, Provider, GetX</p>
-                </div>
-                
-                <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-teal-500">
-                    <h3 class="font-semibold text-lg text-teal-700 mb-2">Integration & Cloud</h3>
-                    <p class="text-sm text-gray-600">Firebase (RTDB, Auth), Azure ML & AI, WebRTC, Sockets, NFC, Secure Storage</p>
-                </div>
-
-                <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-teal-500">
-                    <h3 class="font-semibold text-lg text-teal-700 mb-2">Quality & Native</h3>
-                    <p class="text-sm text-gray-600">CI/CD, SIT/UAT, Performance Optimization, Unit/Widget Testing, Java, Kotlin</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">💼 Professional Experience</h2>
-            
-            <!-- Finance House -->
-            <div class="mb-6 p-4 bg-white rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-                <h3 class="text-xl font-bold text-primary">🏦 Software Developer <span class="text-base font-normal text-gray-500"> | Finance House, Dubai</span></h3>
-                <p class="text-sm italic text-gray-500 mb-3">August 2024 – Present</p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700 text-base">
-                    <li>Led performance optimization initiatives, achieving measurable reductions in app load times (Fintech).</li>
-                    <li>Architected scalable apps using BLoC + Clean Architecture for long-term maintainability.</li>
-                    <li>Managed E2E quality via rigorous SIT/UAT for regulatory compliance.</li>
+    <!-- Professional Summary -->
+    <section id="summary">
+        <div class="container">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary-box fade-in">
+                <p>Highly dynamic Flutter Developer with 4.5 years of total mobile development expertise, specializing in Fintech, Healthcare, and IoT solutions. Proven ability to design and deliver high-performance, scalable, and user-centric mobile applications using advanced architectural patterns like BLoC and Clean Architecture.</p>
+                <ul>
+                    <li>Frameworks/Toolkits: Flutter, Android & iOS</li>
+                    <li>Advanced Flutter State Management: BLoC, Provider, GetX</li>
+                    <li>Deep Integration: RESTful APIs, Firebase, WebRTC, Sockets, NFC</li>
+                    <li>Performance & Quality: CI/CD pipeline implementation, rigorous SIT/UAT, and significant app performance optimization</li>
                 </ul>
             </div>
+        </div>
+    </section>
 
-            <!-- VT NETZWELT -->
-            <div class="mb-6 p-4 bg-white rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-                <h3 class="text-xl font-bold text-primary">🌐 Associate Software Engineer <span class="text-base font-normal text-gray-500"> | VT NETZWELT, Mohali, Punjab</span></h3>
-                <p class="text-sm italic text-gray-500 mb-3">March 2022 – July 2024</p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700 text-base">
-                    <li>Enhanced feature delivery speed by >40% across multiple Flutter (Dart) apps.</li>
-                    <li>Designed AI-powered healthcare features (Housevizit) using Azure ML & AI.</li>
-                    <li>Proactively optimized memory, resulting in significantly reduced crash rates.</li>
-                </ul>
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 class="company">Finance House, Dubai</h3>
+                        <p class="role">Software Developer (via SR Intelligent Technologies)</p>
+                        <p class="date">August 2024 – Present</p>
+                        <ul>
+                            <li>Led performance optimization initiatives, achieving measurable reductions in app load times and significant improvements in UI responsiveness for critical Fintech applications</li>
+                            <li>Architected and developed scalable Flutter applications using the BLoC pattern integrated with Clean Architecture to ensure long-term maintainability and modularity</li>
+                            <li>Managed end-to-end quality assurance by conducting thorough SIT and UAT phases to ensure stability and alignment with regulatory requirements</li>
+                            <li>Integrated essential third-party services including Firebase, Clevertap for analytics, and specialized Secure Storage solutions</li>
+                            <li>Streamlined project delivery by contributing to Agile development workflows, sprint planning, and promoting code quality through rigorous peer code reviews</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 class="company">VT NETZWELT, Mohali, Punjab</h3>
+                        <p class="role">Associate Software Engineer</p>
+                        <p class="date">March 2022 – July 2024</p>
+                        <ul>
+                            <li>Engineered and maintained multiple high-quality, cross-platform applications in Flutter (Dart) for both iOS and Android platforms, enhancing feature delivery speed by over 40%</li>
+                            <li>Implemented various state management solutions (BLoC, GetX, Provider) tailored to project complexity, ensuring high component reusability and clean separation of concerns</li>
+                            <li>Designed and integrated cutting-edge AI-powered healthcare features using Azure ML & AI services, dramatically improving user interaction in the Housevizit application</li>
+                            <li>Optimized application rendering speeds and proactively managed memory footprint, resulting in a significantly reduced crash rate and smoother user experience across devices</li>
+                            <li>Managed data interactions through the integration of complex third-party APIs and Firebase for robust, real-time data handling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 class="company">Anitej Services Pvt. Ltd, Dehradun</h3>
+                        <p class="role">Android Developer (Native)</p>
+                        <p class="date">June 2021 – March 2022</p>
+                        <ul>
+                            <li>Developed and maintained native Android applications using Java/Kotlin, focusing on high-performance UX for ride-hailing and driver companion applications</li>
+                            <li>Ensured system stability by performing rigorous debugging and testing, and successfully integrating crucial third-party APIs to optimize core app functionality</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Anitej Services -->
-            <div class="p-4 bg-white rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-                <h3 class="text-xl font-bold text-primary">📱 Android Developer (Native) <span class="text-base font-normal text-gray-500"> | Anitej Services Pvt. Ltd, Dehradun</span></h3>
-                <p class="text-sm italic text-gray-500 mb-3">June 2021 – March 2022</p>
-                <p class="text-base text-gray-700">Developed native Android apps (Java/Kotlin) focusing on high-performance UX for ride-hailing services.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎯</div>
+                    <h3 class="skill-title">Primary Framework</h3>
+                    <p class="skill-items">Flutter (Dart)</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🏗️</div>
+                    <h3 class="skill-title">Architecture & State</h3>
+                    <p class="skill-items">BLoC, Clean Architecture, Provider, GetX</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">☁️</div>
+                    <h3 class="skill-title">Cloud & Services</h3>
+                    <p class="skill-items">Firebase, Azure ML & AI, Google Cloud</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">⚡</div>
+                    <h3 class="skill-title">Advanced Features</h3>
+                    <p class="skill-items">WebRTC, Sockets, NFC, Secure Storage</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🔧</div>
+                    <h3 class="skill-title">Development Practices</h3>
+                    <p class="skill-items">CI/CD, Git, Agile/Scrum, Performance Optimization, Unit/Widget Testing</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">📱</div>
+                    <h3 class="skill-title">Native Background</h3>
+                    <p class="skill-items">Java, Kotlin (Android)</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Application Portfolio -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">📱 Application Portfolio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                <!-- InvestNation (Android/iOS) -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-yellow-500">
-                    <h3 class="text-xl font-bold text-yellow-700 mb-1">InvestNation <span class="text-sm font-normal text-gray-500">(Fintech | Android/iOS)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">Digital investment platform regulated by the SCA, offering SIP, gold/silver purchases, and credit card services.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.fhc.InvestNation" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
-                    <a href="https://apps.apple.com/ae/app/investnation/id6465605280" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Application Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="app-card fade-in">
+                    <h3 class="app-name">investNation</h3>
+                    <p class="app-category">Fintech Investment Platform</p>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.fhc.InvestNation" class="store-btn">📱 Android</a>
+                        <a href="https://apps.apple.com/ae/app/investnation/id6465605280" class="store-btn">🍎 iOS</a>
+                    </div>
                 </div>
 
-                <!-- FH Personal/Business (Android/iOS) -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-blue-500">
-                    <h3 class="text-xl font-bold text-blue-700 mb-1">FH Personal/Business <span class="text-sm font-normal text-gray-500">(Fintech | Android/iOS)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">Consumer fintech for bill payments, card management, and a dedicated financial application for corporate clients.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.fh.payday" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
-                    <a href="https://apps.apple.com/ae/app/fh-personal/id1563416308" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
-                </div>
-                
-                <!-- Juke Audio (Android/iOS) -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-purple-500">
-                    <h3 class="text-xl font-bold text-purple-700 mb-1">Juke Audio <span class="text-sm font-normal text-gray-500">(Media | Android/iOS)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">Real-time data handling and UI/UX optimized media application for audio content.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.juke.audio.juke_audio&hl=en" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold mr-4"><i class="fab fa-google-play"></i> Play Store</a>
-                    <a href="https://apps.apple.com/ae/app/juke-audio/id1634801077" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-apple"></i> App Store</a>
+                <div class="app-card fade-in">
+                    <h3 class="app-name">FH Personal</h3>
+                    <p class="app-category">Personal Banking</p>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.fh.payday" class="store-btn">📱 Android</a>
+                        <a href="https://apps.apple.com/ae/app/fh-personal/id1563416308" class="store-btn">🍎 iOS</a>
+                    </div>
                 </div>
 
-                <!-- Housevizit (Android) -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-green-500">
-                    <h3 class="text-xl font-bold text-green-700 mb-1">Housevizit <span class="text-sm font-normal text-gray-500">(AI Healthcare | Android)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">AI-powered chat application that triages symptoms and facilitates doctor appointment booking.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.gtscarrental&hl=en" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                <div class="app-card fade-in">
+                    <h3 class="app-name">FH Business</h3>
+                    <p class="app-category">Business Fintech Solution</p>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.fh.financehousebusiness.android.app&hl=en" class="store-btn">📱 Android</a>
+                        <a href="https://apps.apple.com/ae/app/finance-house-business/id1538849624" class="store-btn">🍎 iOS</a>
+                    </div>
                 </div>
 
-                <!-- GTS Driver App (Native Android) -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-red-500">
-                    <h3 class="text-xl font-bold text-red-700 mb-1">GTS Car Rental <span class="text-sm font-normal text-gray-500">(Native Mobility | Android)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">Native Android ride-hailing application used across Dehradun, India.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.gtscarrental&hl=en" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
-                </div>
-                
-                <!-- GTS Car App (Native Android) -->
-                <div class="p-5 bg-white rounded-lg shadow-lg border-t-8 border-gray-500">
-                    <h3 class="text-xl font-bold text-gray-700 mb-1">GTS Driver App <span class="text-sm font-normal text-gray-500">(Native Mobility | Android)</span></h3>
-                    <p class="text-sm mb-3 text-gray-600">Driver management companion app built natively for Android platform.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.gtsdriver" target="_blank" class="text-teal-600 hover:underline text-sm font-semibold"><i class="fab fa-google-play"></i> Play Store</a>
+                <div class="app-card fade-in">
+                    <h3 class="app-name">Juke Audio</h3>
+                    <p class="app-category">Media Streaming</p>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.juke.audio.juke_audio&hl=en" class="store-btn">📱 Android</a>
+                        <a href="https://apps.apple.com/ae/app/juke-audio/id1634801077" class="store-btn">🍎 iOS</a>
+                    </div>
                 </div>
 
+                <div class="app-card fade-in">
+                    <h3 class="app-name">GTS Car Rental</h3>
+                    <p class="app-category">Native Android Rental Service</p>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.gtscarrental&hl=en" class="store-btn">📱 Android</a>
+                    </div>
+                </div>
+
+                <div class="app-card fade-in">
+                    <h3 class="app-name">GTS Driver App</h3>
+                    <p class="app-category">Native Android Driver Companion</p>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.gtsdriver&hl=en" class="store-btn">📱 Android</a>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Education -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold border-b-2 border-accent pb-2 mb-4">🎓 Education</h2>
-            <p class="text-lg font-medium text-gray-700">B.Tech in Computer Science & Engineering</p>
-            <p class="text-base italic text-gray-500">Uttarakhand Technical University</p>
-        </section>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-box fade-in">
+                <h3 class="degree">B.Tech in Computer Science & Engineering</h3>
+                <p class="university">Uttarakhand Technical University</p>
+            </div>
+        </div>
+    </section>
 
-    </main>
-
-    <footer class="bg-primary text-gray-400 py-6 text-center text-sm">
-        <p>&copy; 2025 Aditya Nautiyal. Built with Flutter & Mobile Expertise.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aditya Nautiyal. All rights reserved.</p>
+        </div>
     </footer>
 
+    <script>
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
